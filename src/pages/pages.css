@@ -1,0 +1,10 @@
+.img{
+    display:block !important;
+    max-width: 100% !important;
+    height: auto !important;
+}
+.text-justify{
+    margin: 0;
+    text-indent: 2rem;
+    text-align: justify;
+}
