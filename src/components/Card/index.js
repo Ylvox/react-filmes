@@ -33,6 +33,9 @@ function Card({ tipo, dados }) {
                         </div>
                     );
                 } else if (tipo == "planos") {
+                    function handleClick() {
+                        alert('Comprado :)');
+                    }
                     return (
                         <div className="container">
                             <div className="row">
@@ -44,7 +47,7 @@ function Card({ tipo, dados }) {
                                                 <p>R$ {dado.preco}</p>
                                                 <p>{dado.detalhes}</p>
                                                 <div className='d-grid'>
-                                                    <a href="#" className="btn btn-primary">Adquirir</a>
+                                                    <button onClick={handleClick} className="btn btn-primary">Adquirir</button>
                                                 </div>
                                             </div>
                                         </div>
