@@ -1,4 +1,5 @@
 import './Card.css';
+import Button from '../button/index';
 
 function Assistido({ jaVisto }) {
     if (jaVisto) {
@@ -24,7 +25,7 @@ function Card({ tipo, dados }) {
                                                 <h5 className="card-title">{dado.nome} ({dado.ano})</h5>
                                                 <p>{dado.duracao}</p>
                                                 <Assistido jaVisto={dado.assistido} />
-                                                <a href={'/detalhes/' + dado.nome} className="btn btn-primary">Detalhes</a>
+                                                <Button message={dado.assistido/* TODO Colocar entrada de assistido true ou false da API */} dados={dado.nome} tipo='home'/>
                                             </div>
                                         </div>
                                     </div>
@@ -33,9 +34,6 @@ function Card({ tipo, dados }) {
                         </div>
                     );
                 } else if (tipo == "planos") {
-                    function handleClick() {
-                        alert('Comprado :)');
-                    }
                     return (
                         <div className="container">
                             <div className="row">
@@ -47,7 +45,7 @@ function Card({ tipo, dados }) {
                                                 <p>R$ {dado.preco}</p>
                                                 <p>{dado.detalhes}</p>
                                                 <div className='d-grid'>
-                                                    <button onClick={handleClick} className="btn btn-primary">Adquirir</button>
+                                                    <Button message='Comprado :)' dados='Adquirir' tipo='planos'/>
                                                 </div>
                                             </div>
                                         </div>

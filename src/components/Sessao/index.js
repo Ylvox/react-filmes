@@ -1,4 +1,5 @@
 import './sessao.css';
+import Button from '../button/index';
 
 export default function Sessao({tipo, dados}) {
     return (
@@ -18,7 +19,7 @@ export default function Sessao({tipo, dados}) {
                                 <p>{dados.genero}</p>
                                 <p>{dados.descricao}</p>
                                 <p>{dados.nota}</p>
-                                <Assistido jaVisto={dados.assistido}/>
+                                <Button message={dados.assistido} dados={dados.nome} tipo='home'/>
                             </div>
                         </div>
                     </div>

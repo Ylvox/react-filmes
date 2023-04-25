@@ -1,5 +1,6 @@
 import Titulo from '../components/Titulo/index';
 import Card from '../components/Card/index';
+import Header from '../components/Header/index';
 
 const planos = [{
     "plano": "Plano A",
@@ -21,6 +22,7 @@ const planos = [{
 function Planos() {
     return (
         <>
+            <Header menu='outros'/>
             <Titulo title='Planos' text='Lista de planos disponiveis' />
             <Card tipo='planos' dados={planos} />
         </>

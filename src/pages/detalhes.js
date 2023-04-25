@@ -1,33 +1,34 @@
 import { useParams } from "react-router-dom";
 import Titulo from '../components/Titulo/index';
 import Sessao from '../components/Sessao/index';
+import Header from '../components/Header/index';
 
 const filmes = [{
-    "nome": "Harry Potter",
-    "foto": "harrypotter.jpg",
-    "duracao": "2H",
-    "genero": "Açao/Aventura",
-    "descricao": "Filme mt loco do harry potter",
-    "nota": 7,
-    "assistido": true
+  "nome": "Harry Potter",
+  "foto": "harrypotter.jpg",
+  "duracao": "2H",
+  "genero": "Açao/Aventura",
+  "descricao": "Filme mt loco do harry potter",
+  "nota": 7,
+  "assistido": true
 },
 {
-    "nome": "Harry Potter 2",
-    "foto": "harrypotter.jpg",
-    "duracao": "2H",
-    "genero": "Açao/Aventura",
-    "descricao": "Filme mt loco dos magico",
-    "nota": 9,
-    "assistido": false
+  "nome": "Harry Potter 2",
+  "foto": "harrypotter.jpg",
+  "duracao": "2H",
+  "genero": "Açao/Aventura",
+  "descricao": "Filme mt loco dos magico",
+  "nota": 9,
+  "assistido": false
 },
 {
-    "nome": "Zootopia",
-    "foto": "zootopia.jpg",
-    "duracao": "2H",
-    "genero": "Animaçao",
-    "descricao": "Simplesmente foda",
-    "nota": 10,
-    "assistido": true
+  "nome": "Zootopia",
+  "foto": "zootopia.jpg",
+  "duracao": "2H",
+  "genero": "Animaçao",
+  "descricao": "Simplesmente foda",
+  "nota": 10,
+  "assistido": true
 }
 ]
 
@@ -49,30 +50,25 @@ const coments = [{
 ]
 
 function Detalhes() {
-    const {filmenome} = useParams();
-    return (
-      <>
-        <Titulo title='Detalhes' text={filmenome}/>
-        <div className="Detalhes mt-5">
-          {(() => {
-            if(filmenome == 'Harry Potter'){
-              return(
-                <Sessao tipo='detalhes' dados={filmes[0]}/>
-              );
-            } else if(filmenome == 'Harry Potter 2'){
-              return(
-                <Sessao tipo='detalhes' dados={filmes[1]}/>
-              );
-            } else if(filmenome == 'Zootopia'){
-              return(
-                <Sessao tipo='detalhes' dados={filmes[2]}/>
-              );
-            }
-          })()}
-          <Sessao tipo='comentarios' dados={coments}/>
+  const { filmenome } = useParams();
+
+  return (
+    <>
+      <Header menu='outros' />
+      <Titulo title='Detalhes' text={filmenome} />
+      <div className="Detalhes mt-5">
+        {filmes.map(filme => {
+          if (filmenome == filme.nome) {
+            return (
+              <Sessao tipo='detalhes' dados={filme} />
+            );
+          }
+        })
+        }
+        <Sessao tipo='comentarios' dados={coments} />
       </div>
-      </>
-    );
-  }
-  
-  export default Detalhes;
+    </>
+  );
+}
+
+export default Detalhes;

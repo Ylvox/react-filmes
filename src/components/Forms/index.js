@@ -52,14 +52,14 @@ export default function Forms({ tipo }) {
                                                 <input className="form-control" type="password" placeholder="CVV" maxlength="3"></input>
                                             </div>
                                             <div className="col-9 mb-3">
-                                                <input className="form-control" type="text" placeholder="Nome titular"></input>
+                                                <input className="form-control" type="text" placeholder="Nome titular" maxlength="250"></input>
                                             </div>
                                             <div className="col-3 mb-3">
                                                 <input className="form-control" type="text" placeholder="Validade" maxlength="4"></input>
                                             </div>
                                         </div>
                                         <div className="mb-3 d-grid">
-                                            <button className="btn btn-primary">Enviar</button>
+                                            <button className="btn btn-primary">Assinar</button>
                                         </div>
                                     </form>
                                 </div>
