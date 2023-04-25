@@ -37,9 +37,11 @@ export default function Forms({ tipo }) {
                                             <input id="fTel" className="form-control" type="text"></input>
                                         </div>
                                         <h5>Plano escolhido:</h5>
-                                        <div className="mb-3">
-                                            <button className={activeIndex === 0? "btn btn-outline-primary m-2 active": "btn btn-outline-primary m-2"}onClick={() => setIsActive(0)}>Free</button>
-                                            <button className={activeIndex === 1? "btn btn-outline-primary m-2 active": "btn btn-outline-primary m-2"}onClick={() => setIsActive(1)}>Plus</button>
+                                        <div className="mb-3" role="group">
+                                            <input type="radio" className='btn-check' autoComplete='off' id='freeSel' value='' name='planoRadio'></input>
+                                            <label for='freeSel' className='btn btn-outline-primary me-2'>Free</label>
+                                            <input type="radio" className='btn-check' autoComplete='off' id='plusSel' value='' name='planoRadio'></input>
+                                            <label for='plusSel' className='btn btn-outline-primary'>Plus</label>
                                         </div>
                                         <h5>Dados bancarios:</h5>
                                         <div className="mb-3 row">
