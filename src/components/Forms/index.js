@@ -1,9 +1,23 @@
-export default function forms({tipo}){
-    return(
+import { useState } from 'react';
+
+export default function Forms({ tipo }) {
+
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    const setIsActive = (index) => {
+        setActiveIndex((prevIndex) => {
+            if (prevIndex === index) {
+                return 0;
+            }
+            return index;
+        });
+    };
+
+    return (
         <>
             {(() => {
-                if(tipo == 'cadastro'){
-                    return(
+                if (tipo == 'cadastro') {
+                    return (
                         <div className="container">
                             <div className="row">
                                 <div className="col-3"></div>
@@ -22,20 +36,18 @@ export default function forms({tipo}){
                                             <label for="fTel" className="form-label">Telefone:</label>
                                             <input id="fTel" className="form-control" type="text"></input>
                                         </div>
-                                        <h5>Preferencias de filmes:</h5>
+                                        <h5>Plano escolhido:</h5>
                                         <div className="mb-3">
-                                            <button className="btn btn-outline-primary m-2">Ação</button>
-                                            <button className="btn btn-outline-primary m-2">Comédia</button>
-                                            <button className="btn btn-outline-primary m-2">Ficção</button>
-                                            <button className="btn btn-outline-primary m-2">Animação</button>
+                                            <button className={activeIndex === 0? "btn btn-outline-primary m-2 active": "btn btn-outline-primary m-2"}onClick={() => setIsActive(0)}>Free</button>
+                                            <button className={activeIndex === 1? "btn btn-outline-primary m-2 active": "btn btn-outline-primary m-2"}onClick={() => setIsActive(1)}>Plus</button>
                                         </div>
                                         <h5>Dados bancarios:</h5>
                                         <div className="mb-3 row">
                                             <div className="col-9 mb-3">
-                                                <input className="form-control" type="text" placeholder="Numero do cartao"></input>
+                                                <input className="form-control" type="text" placeholder="Numero do cartao" maxlength="20"></input>
                                             </div>
                                             <div className="col-3 mb-3">
-                                                <input className="form-control" type="text" placeholder="CVV" maxlength="3"></input>
+                                                <input className="form-control" type="password" placeholder="CVV" maxlength="3"></input>
                                             </div>
                                             <div className="col-9 mb-3">
                                                 <input className="form-control" type="text" placeholder="Nome titular"></input>
