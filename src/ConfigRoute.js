@@ -11,7 +11,7 @@ export default function ConfigRoute(){
             <Route path='/' element={<Home />}></Route>
             <Route path='/planos' element={<Planos />}></Route>
             <Route path='/sobre/:name' element={<Sobre />}></Route>
-            <Route path='/detalhes/:filmenome' element={<Detalhes />}></Route>
+            <Route path='/detalhes/:id' element={<Detalhes />}></Route>
             <Route path='/cadastro' element={<Cadastro />}></Route>
             <Route path='*' element={<h1 className="text-center text-danger mt-5">404 - Pagina nao encontrada!</h1>}></Route>
         </Routes>

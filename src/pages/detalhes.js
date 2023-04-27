@@ -2,35 +2,7 @@ import { useParams } from "react-router-dom";
 import Titulo from '../components/Titulo/index';
 import Sessao from '../components/Sessao/index';
 import Header from '../components/Header/index';
-
-const filmes = [{
-  "nome": "Harry Potter",
-  "foto": "harrypotter.jpg",
-  "duracao": "2H",
-  "genero": "Açao/Aventura",
-  "descricao": "Filme mt loco do harry potter",
-  "nota": 7,
-  "assistido": true
-},
-{
-  "nome": "Harry Potter 2",
-  "foto": "harrypotter.jpg",
-  "duracao": "2H",
-  "genero": "Açao/Aventura",
-  "descricao": "Filme mt loco dos magico",
-  "nota": 9,
-  "assistido": false
-},
-{
-  "nome": "Zootopia",
-  "foto": "zootopia.jpg",
-  "duracao": "2H",
-  "genero": "Animaçao",
-  "descricao": "Simplesmente foda",
-  "nota": 10,
-  "assistido": true
-}
-]
+import { useEffect, useState } from "react";
 
 const coments = [{
   "nome": "Ricardo",
@@ -50,21 +22,41 @@ const coments = [{
 ]
 
 function Detalhes() {
-  const { filmenome } = useParams();
+
+  const [data, setData] = useState(null);
+  const { id } = useParams();
+
+  useEffect(() => {
+    fetch('https://my-json-server.typicode.com/marycamila184/moviedetails/moviedetails/' + id)
+      .then(response => response.json())
+      .then(data => setData(data))
+      .catch(err => console.error(err))
+  }, []);
+
+  if (!data) {
+    return (
+      <div className="text-center m-auto col-12">
+        <h4>Carregando...</h4>
+      </div>
+    );
+  }
 
   return (
     <>
       <Header menu='outros' />
-      <Titulo title='Detalhes' text={filmenome} />
+      <Titulo title='Detalhes' text={data.titulo} />
       <div className="Detalhes mt-5">
-        {filmes.map(filme => {
-          if (filmenome == filme.nome) {
+        {(() => {
+          if(data.id == null){
             return (
-              <Sessao tipo='detalhes' dados={filme} />
+              <div className="text-center m-auto col-12">
+                <h4>Filme indisponivel</h4>
+              </div>
             );
+          }else{
+            return <Sessao tipo='detalhes' dados={data} />;
           }
-        })
-        }
+        })()}
         <Sessao tipo='comentarios' dados={coments} />
       </div>
     </>

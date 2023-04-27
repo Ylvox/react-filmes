@@ -11,15 +11,15 @@ export default function Sessao({tipo, dados}) {
                     <div className="container">
                         <div className="row">
                             <div className="col-4 text-center">
-                                <img src={'/assets/images/' + dados.foto} className="img-fluid" alt={dados.nome}></img>
+                                <img src={dados.poster} className="img-fluid rounded shadow" alt={dados.titulo}></img>
                             </div>
                             <div className="col-8 text-center">
-                                <h3>{dados.nome}</h3>
-                                <p>{dados.duracao}</p>
-                                <p>{dados.genero}</p>
-                                <p>{dados.descricao}</p>
-                                <p>{dados.nota}</p>
-                                <Button message={dados.assistido} dados={dados.nome} tipo='home'/>
+                                <h3>{dados.titulo}</h3>
+                                <p>Ano: {dados.ano}</p>
+                                <p>Nota: {dados.nota} de 5</p>
+                                <h6>Sinopse:</h6>
+                                <p className='sinopse m-auto mb-4'>{dados.sinopse}</p>
+                                <Button message={dados.assistido} dados={dados.id} tipo='home'/>
                             </div>
                         </div>
                     </div>

@@ -34,7 +34,7 @@ export default function Forms({ tipo }) {
                                         </div>
                                         <div className="mb-3">
                                             <label for="fTel" className="form-label">Telefone:</label>
-                                            <input id="fTel" className="form-control" type="text"></input>
+                                            <input id="fTel" className="form-control" type="text" maxLength="11"></input>
                                         </div>
                                         <h5>Plano escolhido:</h5>
                                         <div className="mb-3" role="group">
