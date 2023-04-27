@@ -1,6 +1,5 @@
 import './Card.css';
 import Button from '../button/index';
-import ApiFetch from '../apiFetch/index';
 import { useState, useEffect } from 'react';
 
 function Assistido({ jaVisto }) {

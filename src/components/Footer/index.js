@@ -1,7 +1,6 @@
 import './Footer.css';
 
-const ano = 2022;
-
+const ano = 2023;
 
 function Footer() {
   return (
